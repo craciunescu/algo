@@ -16,7 +16,7 @@ def is_prime_naive(number):
         Calculates if a number is prime in a naive way. This function iterates
         all the way up to 'number' and checks every element.
 
-        With this approach, we would obtain a temporal complexity of O(number).
+        With this approach, we would obtain a temporal complexity of O(n).
     """
     is_prime = True
 

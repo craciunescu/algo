@@ -5,9 +5,6 @@
     5. Program a function to determine if a number received as a parameter is
     prime. Analyze the efficiency and complexity of the provided solution(s).
 """
-# Benchmarking
-from time import time
-
 # Testing
 import unittest
 from src import e5
@@ -26,7 +23,6 @@ class TestPrimeMethods(unittest.TestCase):
         self.assertFalse(e5.is_prime_naive(797582))
         self.assertFalse(e5.is_prime_naive(-4))
         self.assertFalse(e5.is_prime_naive(0))
-        self.assertFalse(e5.is_prime_naive(24))
 
     def test_is_prime_optimized(self):
         """ Test is_prime_optimized """
@@ -40,7 +36,6 @@ class TestPrimeMethods(unittest.TestCase):
         self.assertFalse(e5.is_prime_optimized(797582))
         self.assertFalse(e5.is_prime_optimized(-4))
         self.assertFalse(e5.is_prime_optimized(0))
-        self.assertFalse(e5.is_prime_optimized(24))
 
 if __name__ == '__main__':
     unittest.main()

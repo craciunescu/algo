@@ -1,68 +1,45 @@
-from time import time
+"""
+    @author: David E. Craciunescu
+      @date: 2020/02/18 (yyyy/mm/dd)
+
+    6. Program a function to determine if a number received as a parameter is
+    perfect. Analyze the efficiency and complexity of the provided solution.
+
+    A perfect number is a positive integer such that it is equal to the sum of
+    its divisors. As with all problems, there are many ways to implement this.
+"""
 import math
 
-################################################################################
-# 6. Program a function to determine if a number received as parameter is
-# perfect. Analyze the efficiency and complexity.
-################################################################################
+def is_perfect_naive(num):
+    """
+        Calculates if a number is perfect in a naive way. This function iterates
+        all the way up to the number and checks every element.
 
-# A perfect number is a positive integer such that it is equal to the sum of its
-# divisors. As with all problems, there are many ways to implement this.
+        With this approach, we would obtain a temporal complexity of O(n).
+    """
+    return num == sum([current for current in range(1, num) if num % current == 0])
 
-# a) Naive way.
-# - Calculate all divisors up to N.
-# - Check if sum is equal to number.
-def isPerfectNaive(num):
-    """Return if a number is perfect."""
-    
-    start = time()
-    result = (num == sum([n for n in range (1, num+1) if num % n == 0]))
-    end = time()
+def is_perfect_optimized(num):
+    """
+        Calculates if a number is perfect in a non-naive way. This function
+        takes into account:
+        - Divisors present themselves in pairs when calculating.
+        - With this approach one only need go up to sqrt(num).
+        - Can store partial sum instead of occupying memory with list of
+          divisors.
 
-    print("isPerfectNaive(",num,") \t|| RESULT",result,"|| TIME", (end-start), "sec.")
+        With this approach, the program only needs to go up to the square root
+        of n. The complexity will therefore be O(sqrt(n)) in the worst case.
+    """
+    sum_divisors = 0
 
-################################################################################
-
-# b) Not-so-naive way.
-# - Divisors present themselves in pairs when calculating.
-# - Calculate up to square root of number.
-# - Can iteratively calculate sum instead of occupying memory with list of 
-#   divisors.
-
-def isPerfect(n):
-    """Return if a number is perfect."""
-    start = time()
-    divs = 0
-
-    for i in range (1, int(math.sqrt(n)+1)):
+    for current in range(1, int(math.sqrt(num))+1):
         # Is divisor of the number.
-        if (n % i == 0):
-            divs += i
+        if num % current == 0:
+            sum_divisors += current
 
-            # The quotient is also a divisor of n.
-            if (n / i != i):
-                divs += (n // i)
-    
-    # We're counting n twice in the sum.
-    result = (n*2 == divs)
-    end = time()
+            # Different quotient is also a solution.
+            if num / current != current:
+                sum_divisors += (num // current)
 
-    print("isPerfect(",n,") \t\t|| RESULT",result,"|| TIME", (end-start), "sec.")
-
-#isPerfect(6)
-
-# Testing
-
-# Correct cases.
-#isPerfectNaive(33550336)
-#isPerfect(33550336)
-
-#print()
-
-# Incorrect cases.
-#isPerfectNaive(33550333)
-#isPerfect(33560336)
-def isPerfectTest(n):
-    for number in n:
-        isPerfect(number)
-isPerfectTest(range(1, 1000))
+    return num*2 == sum_divisors
