@@ -19,5 +19,5 @@ Basic structure of the repo:
 ```
 
 No external python libraries have been used.
-From any `number_of_unit` directory, execute `python3 -m /test/test_*.py -v` to
+From any `number_of_unit` directory, execute `python3 -m unittest test/test_*.py -v` to
 check the results from the tests.
