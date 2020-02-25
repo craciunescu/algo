@@ -13,10 +13,17 @@ from src import e9
 class TestSummationMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U1/src/e9.py """
 
-    def test_summation(self):
+    # Test summation
+    def test_summation01(self):
         """ Test summation """
         self.assertEqual(e9.summation(10), sum(range(10+1)))
+
+    def test_summation02(self):
+        """ Test summation """
         self.assertEqual(e9.summation(100), sum(range(100+1)))
+
+    def test_summation03(self):
+        """ Test summation """
         self.assertEqual(e9.summation(300), sum(range(300+1)))
 
 if __name__ == '__main__':

@@ -16,7 +16,9 @@ def is_prime_naive(number):
         Calculates if a number is prime in a naive way. This function iterates
         all the way up to 'number' and checks every element.
 
-        With this approach, we would obtain a temporal complexity of O(n).
+        With this approach, we would obtain:
+        - Temporal Complexity => O(n)
+        - Spacial Complexity => O(1)
     """
     is_prime = True
 
@@ -38,9 +40,9 @@ def is_prime_optimized(number):
         - If 2 divides a number, then the number divided by two divides n as
           well.
 
-        With this approach, the program only needs to go up to the square root
-        of n. The complexity will therefore be O(sqrt(number)) in the worst
-        case.
+        With this approach, we would obtain:
+        - Temporal Complexity => O(√n)
+        - Spacial Complexity => O(1)
     """
     is_prime = True
 

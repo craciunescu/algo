@@ -15,7 +15,9 @@ def is_perfect_naive(num):
         Calculates if a number is perfect in a naive way. This function iterates
         all the way up to the number and checks every element.
 
-        With this approach, we would obtain a temporal complexity of O(n).
+        With this approavh, we would obtain:
+        - Temporal Complexity => O(n)
+        - Spacial Complexity => O(1)
     """
     return num == sum([current for current in range(1, num) if num % current == 0])
 
@@ -28,8 +30,9 @@ def is_perfect_optimized(num):
         - Can store partial sum instead of occupying memory with list of
           divisors.
 
-        With this approach, the program only needs to go up to the square root
-        of n. The complexity will therefore be O(sqrt(n)) in the worst case.
+        With this approach we would obtain:
+        - Temporal Complexity => O(√n)
+        - Spacial Complexity => O(1)
     """
     sum_divisors = 0
 

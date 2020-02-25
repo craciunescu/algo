@@ -7,7 +7,13 @@
     Analyze the efficiency and complexity of the provided solution.
 """
 def summation(num):
-    """ Recursively calculates the sum of all the numbers between 1 and num """
+    """ 
+        Recursively calculates the sum of all the numbers between 1 and num.
+
+        With this approach we get:
+        - Time Complexity => O(n) [Basically doing a for loop recursively]
+        - Space Complexity => O(n) [We have to store all the calls on the stack]
+    """
     if num <= 1:
         return num
     return num + summation(num - 1)
