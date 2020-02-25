@@ -20,23 +20,19 @@ class TestMinPairMethods(unittest.TestCase):
 
     def test_get_min_pair_sum01(self):
         """ Test get_min_pair_sum """
-        self.assertEqual(e1.get_min_pair_sum([5, 8, 4, 1, 7, 9]), )
-    
+        self.assertEqual(e1.get_min_pair_sum([5, 8, 4, 1, 7, 9]), 12)
+
     def test_get_min_pair_sum02(self):
         """ Test get_min_pair_sum """
-        self.assertEqual(e1.get_min_pair_sum([5, 8, 4, 1, 7, 9]), )
-    
+        self.assertEqual(e1.get_min_pair_sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 11)
+
     def test_get_min_pair_sum03(self):
         """ Test get_min_pair_sum """
-        self.assertEqual(e1.get_min_pair_sum([5, 8, 4, 1, 7, 9]), )
-    
+        self.assertEqual(e1.get_min_pair_sum([7, 7, 7, 7, 7, 7]), 14)
+
     def test_get_min_pair_sum04(self):
         """ Test get_min_pair_sum """
-        self.assertEqual(e1.get_min_pair_sum([5, 8, 4, 1, 7, 9]), )
-    
-    def test_get_min_pair_sum05(self):
-        """ Test get_min_pair_sum """
-        self.assertEqual(e1.get_min_pair_sum([5, 8, 4, 1, 7, 9]), )
+        self.assertEqual(e1.get_min_pair_sum([1000, 1, 1234, 3, 23455, 4, 6666, 9]), 23456)
 
 if __name__ == '__main__':
     unittest.main()

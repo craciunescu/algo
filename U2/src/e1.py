@@ -7,19 +7,24 @@
     such values and return the pair that yields the highest result when both its
     numbers are added together.
 
-    Design a voracious algorithm that creates pairs in such a way that the
+    Design a greedy algorithm that creates pairs in such a way that the
     maximum value of the sums is the smallest biggest sum possible, showing that
     candidate selection function used provides an optimal solution.
-
-    ---
-
-    It seems that the optimal solution to this problem would consist of:
-    1. Sorting the array -> O(nlog(n))
-    2. Iterating the array both ways and making pairs from start and end.
-    3. While iterating, storing the maximum found each iterations. O(1)
 """
 def get_min_pair_sum(values):
-    """ Returns the minimum possible maximum sum out of two values """
+    """ 
+        Returns the minimum possible maximum sum out of two values 
+
+        It seems that the optimal solution to the problem would be:
+        1. Sort the array => O(n log(n))
+        2. Iterate over the array and make pairs from start and end => O(n)
+        3. Store the biggest value found each iteration => O(1)
+        4. Return stored value => O(1)
+
+        With this approach, we would obtain:
+        - Time Complexity => O(nlog(n))
+        - Space Complexity => O(n)
+    """
 
     pair_values = []
     maximum = []

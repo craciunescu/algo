@@ -15,7 +15,7 @@ def is_perfect_naive(num):
         Calculates if a number is perfect in a naive way. This function iterates
         all the way up to the number and checks every element.
 
-        With this approavh, we would obtain:
+        With this approach, we would obtain:
         - Temporal Complexity => O(n)
         - Spacial Complexity => O(1)
     """
