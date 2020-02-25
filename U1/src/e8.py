@@ -6,12 +6,16 @@
     one. Example: 627 -> 726. Analyze the efficiency and complexity of the
     provided solution.
 """
-def inverse(number, result=0):
+def inverse_aux(number, result=0):
     """ Recursively obtains the inverse number of the provided one """
 
     if number > 0:
         reminder = number % 10
         result = (result*10) + reminder
-        inverse(number // 10, result)
+        inverse_aux(number // 10, result)
 
     return result
+
+def inverse(number):
+    """ Recursively obtains the inverse number of the provided one """
+    return inverse_aux(number)
