@@ -23,4 +23,4 @@ def store_files(files):
         @params:
             files: 2D array with length and access for file.
     """
-    return sorted(files, key=lambda elem: elem[0]/elem[1])
+    return sorted(files, key=lambda elem: elem[0])

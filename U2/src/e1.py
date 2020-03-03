@@ -12,8 +12,8 @@
     candidate selection function used provides an optimal solution.
 """
 def get_min_pair_sum(values):
-    """ 
-        Returns the minimum possible maximum sum out of two values 
+    """
+        Returns the minimum possible maximum sum out of two values
 
         It seems that the optimal solution to the problem would be:
         1. Sort the array => O(n log(n))

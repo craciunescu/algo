@@ -21,35 +21,43 @@ def calculate_cost(files):
 
     return cost
 
+def generate_vector(seed):
+    """ Generate a test vector """
+    r.seed(a=seed)
+    max_len = r.randint(1, 10)
+    return [[r.randint(1, 100), r.randint(1, 100)] for num in range(1, max_len)]
+
+def test_general(vector):
+    """ Generate vector permutations and return minimum cost """
+    perms = list(permutations(vector))
+    return min([calculate_cost(perm) for perm in perms])
+
 class TestStoreFilesMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U2/src/e2.py """
 
-    def test_general(self, seed):
-        """ Test store_files """
-        r.seed(a=seed)
-        max_len = r.randint(0, 10)
-        vector = [[r.randint(0, 100), r.randint(0, 100)] for num in range(1, max_len)]
-
-        perms = list(permutations(vector))
-        min_cost = min([calculate_cost(perm) for perm in perms])
-
-        self.assertEqual(calculate_cost(e2.store_files(vector)), min_cost)
-
     def test_store_files01(self):
         """ Test store_files """
-        self.test_general("test_store_files01")
+        test_vector = generate_vector("test_store_files01")
+        min_value = test_general(test_vector)
+        self.assertEqual(calculate_cost(e2.store_files(test_vector)), min_value)
 
     def test_store_files02(self):
         """ Test store_files """
-        self.test_general("test_store_files02")
+        test_vector = generate_vector("test_store_files02")
+        min_value = test_general(test_vector)
+        self.assertEqual(calculate_cost(e2.store_files(test_vector)), min_value)
 
     def test_store_files03(self):
         """ Test store_files """
-        self.test_general("test_store_files03")
+        test_vector = generate_vector("test_store_files03")
+        min_value = test_general(test_vector)
+        self.assertEqual(calculate_cost(e2.store_files(test_vector)), min_value)
 
     def test_store_files04(self):
         """ Test store_files """
-        self.test_general("test_store_files04")
+        test_vector = generate_vector("test_store_files04")
+        min_value = test_general(test_vector)
+        self.assertEqual(calculate_cost(e2.store_files(test_vector)), min_value)
 
 if __name__ == "__main__":
     unittest.main()
