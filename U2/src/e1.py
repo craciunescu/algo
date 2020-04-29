@@ -46,3 +46,4 @@ def get_min_pair_sum(values):
             maximum = [start, end]
 
     return sum(maximum)
+    

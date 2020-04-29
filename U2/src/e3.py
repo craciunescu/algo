@@ -15,7 +15,20 @@ def min_and_max(vector):
     """
         Returns minimum and maximum elements in a vector while realizing the
         minimum amount of comparisons between elements.
+
+        By using the Tournament Method, we compare the elements in pairs through
+        to the next stage, this can only leave one element at the end.
+
+        With this method we obtain a max of comparisons that follow the formula:
+        if n is odd => 3(n-1)/2
+        if n is even => 3(n/2)-2
+        Both are bounded by (3/2)n comparisons.
+
+        The complexity of the solution is clearly O(n).
     """
+    if not vector:
+        return []
+
     length = len(vector)
     pair = [vector[0], vector[1]]
     even_len = length % 2 == 0

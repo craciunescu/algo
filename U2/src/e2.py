@@ -22,5 +22,9 @@ def store_files(files):
 
         @params:
             files: 2D array with length and access for file.
+
+        We're merely performing a sorting operation. According to the official
+        Python documentation, the sort in Python is O(n log n) both on average
+        and the worst case.
     """
     return sorted(files, key=lambda elem: elem[0])
