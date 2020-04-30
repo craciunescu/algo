@@ -7,7 +7,7 @@
 
     The factory has N bottles and has one (and only one) cork stopper to match
     each bottle. The process would seem simple but there are a number of details
-    we to take into consideration first:
+    we need to take into consideration first:
     - The bottles are all different from one another, just like the corks. Each
       bottle can only be closed with its correspondent cork and each cork only
       serves for a specific bottle.
@@ -164,7 +164,7 @@ def match(set1, set2):
         @returns:
             an ordered list of tuples with the elements found in both
     """
-    set1 = quick_unsorted(set1, set2, 0, len(set1))
-    set2 = quick_sorted(set2, set1, 0, len(set2))
+    set1 = quick_unsorted(set1, set2, 0, len(set1)-1)
+    set2 = quick_sorted(set2, set1, 0, len(set2)-1)
 
-    return zip(set1, set2)
+    return list(zip(set1, set2))

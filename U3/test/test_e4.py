@@ -24,7 +24,7 @@ class TestMatchMethods(unittest.TestCase):
 
         provided1 = list(range(length))
         provided2 = provided1[:]
-        expect = zip(provided1, provided2)
+        expect = list(zip(provided1, provided2))
 
         shuffle(provided1)
         shuffle(provided2)
