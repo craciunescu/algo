@@ -63,11 +63,12 @@ def search_binary(val, data):
 
         return found
 
-    return search_binary_aux(val, data, 0, len(data)-1)
+    return search_binary_aux(val, data, 0, len(data) - 1)
+
 
 def pivot(val, data, start, end):
     """
-        Standard QuickSort pivoting. Does not create auxiliary data structures.
+        Standard QuickSort pivoting. Does not create aux data structures.
 
         @params:
               val: the pivot value
@@ -170,5 +171,7 @@ def match(set1, set2):
     set1 = quick_unsorted(set1, set2, 0, len(set1)-1)
     set2 = quick_sorted(set2, set1, 0, len(set2)-1)
 
-    return list(zip(set1, set2))
+    set1 = quick_unsorted(set1, set2, 0, len(set1)-1)
+    set2 = quick_sorted(set2, set1, 0, len(set2)-1)
 
+    return list(zip(set1, set2))

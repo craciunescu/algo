@@ -16,7 +16,7 @@ def calculate_cost(files):
     cost = 0
 
     for file in files:
-        cost = (offset + file[0]) * file[1]
+        cost += (offset + file[0]) * file[1]
         offset += file[0]
 
     return cost

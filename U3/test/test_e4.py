@@ -14,6 +14,7 @@ from random import randint, shuffle
 import unittest
 from src import e4
 
+
 class TestMatchMethods(unittest.TestCase):
     """ Test match method in craciunescu@github.com/algo/U3/src/e4.py """
 
@@ -50,6 +51,7 @@ class TestMatchMethods(unittest.TestCase):
         """ Test match 04 """
         set1, set2, exp = self.data_generator(100000)
         self.assertEqual(e4.match(set1, set2), exp)
+
 
 if __name__ == '__main__':
     unittest.main()

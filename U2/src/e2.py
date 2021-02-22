@@ -23,8 +23,12 @@ def store_files(files):
         @params:
             files: 2D array with length and access for file.
 
+        The best way to store the files is according to the relation between
+        the times they're accessed and their length. The tape will be stored
+        optimally if we follow an ascending order defined by length/access_time.
+
         We're merely performing a sorting operation. According to the official
         Python documentation, the sort in Python is O(n log n) both on average
         and the worst case.
     """
-    return sorted(files, key=lambda elem: elem[0])
+    return sorted(files, key=lambda elem: elem[0] / elem[1])

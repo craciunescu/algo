@@ -43,8 +43,6 @@ def path_shortest(graph, start):
     distances[start] = 0
     paths = [(0, start)]
 
-    # I legitimately believe this block of code is so clear it explains itself.
-    # I'll eventually eliminate even this comment after correcting.
     while paths:
         current_distance, current_node = heap.heappop(paths)
         neighbors = graph[current_node].items()
