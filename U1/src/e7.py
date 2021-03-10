@@ -14,7 +14,7 @@
     - Tweaking the implementation of e5 and e6 in order to return amounts and
       not booleans.
 """
-from src.e6 import is_perfect_optimized as is_perfect
+from e6 import is_perfect_optimized as is_perfect
 
 def amount_primes(number):
     """

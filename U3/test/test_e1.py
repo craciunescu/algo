@@ -16,7 +16,7 @@ import unittest
 from src import e1
 
 class TestMinPairMethods(unittest.TestCase):
-    """ Test methods in craciunescu@github.com/algo/U2/src/e1.py """
+    """ Test methods in craciunescu@github.com/algo/U3/src/e1.py """
 
     def test_get_min_pair_sum01(self):
         """ Test get_min_pair_sum """

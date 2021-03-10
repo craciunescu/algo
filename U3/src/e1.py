@@ -9,7 +9,7 @@ def coincident(vector):
         integer values ordered in increasing order, design a divide-and-conquer
         algorithm that finds if the vector is coincident.
 
-        A coincident vector is that in which at least a value is contained in an
+        A coincident vector is that in which at least one value is contained in an
         index equal to that value. An example would be: [-14, -2, 2, 4, 7, 9].
         The value 2 can be found in index [2], therefore the vector is
         coincident.

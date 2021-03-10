@@ -49,7 +49,7 @@ class TestMatchMethods(unittest.TestCase):
 
     def test_match04(self):
         """ Test match 04 """
-        set1, set2, exp = self.data_generator(100000)
+        set1, set2, exp = self.data_generator(50000)
         self.assertEqual(e4.match(set1, set2), exp)
 
 

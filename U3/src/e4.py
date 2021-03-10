@@ -2,7 +2,7 @@
     @author: David E. Craciunescu
       @date: 2020/04/29 (yyyy/mm/dd)
 
-    4. You'd like to program a robot to match cork stoppers to glass bottles at
+    4. We'd like to program a robot to match cork stoppers to glass bottles at
     a recyling factory.
 
     The factory has N bottles and has one (and only one) cork stopper to match

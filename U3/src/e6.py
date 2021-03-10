@@ -31,7 +31,7 @@
     single second: at least in the best case it must have a logarithmic order.
 
     You can consider the time that it takes for Indiana Croft to travel along
-    the bridge as negelible and that the estimate of the point of the river
+    the bridge as negligible and that the estimate of the point of the river
     where to drop off can have an approximation error of ε meters (ε is a given
     constant).
 
