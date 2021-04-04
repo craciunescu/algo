@@ -47,8 +47,10 @@
 """
 from collections import defaultdict
 import heapq as heap
+from typing import Dict
+from numbers import Number
 
-def prim(graph, start):
+def prim(graph: Dict[chr, Number], start: chr) -> Dict[chr, Number]:
     """ Pythonic minheap implementation of prim's algorithm """
 
     # Check empty input.
@@ -66,7 +68,6 @@ def prim(graph, start):
     heap.heapify(edges)
 
     while edges:
-        # I just want to say I love Python for being able to flatten iterables.
         weight, start, end = heap.heappop(edges)
 
         # Check for cycles.

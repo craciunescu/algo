@@ -13,26 +13,38 @@
 """
 # Testing
 import unittest
-from src import e3
+from U2.src.e3 import min_and_max
 
 class TestMinMaxMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U2/src/e3.py """
 
     def test_min_and_max01(self):
         """ Test min_and_max """
-        self.assertEqual(e3.min_and_max([1, 2, 3, 4, 5]), [5, 1])
+        provided = min_and_max([1, 2, 3, 4, 5])
+        expected = [5, 1]
+
+        self.assertEqual(provided, expected)
 
     def test_min_and_max02(self):
         """ Test min_and_max """
-        self.assertEqual(e3.min_and_max([5, 2, 6, 1, 2, 4, 6]), [6, 1])
+        provided = min_and_max([5, 2, 6, 1, 2, 4, 6])
+        expected = [6, 1]
+
+        self.assertEqual(provided, expected)
 
     def test_min_and_max03(self):
         """ Test min_and_max """
-        self.assertEqual(e3.min_and_max([-1, -5, 2, 2, 4, 5]), [5, -5])
+        provided = min_and_max([-1, -5, 2, 2, 4, 5])
+        expected = [5, -5]
+
+        self.assertEqual(provided, expected)
 
     def test_min_and_max04(self):
         """ Test min_and_max """
-        self.assertEqual(e3.min_and_max([]), [])
+        provided = min_and_max([])
+        expected = []
+        
+        self.assertEqual(provided, expected)
 
 if __name__ == '__main__':
     unittest.main()

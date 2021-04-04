@@ -16,7 +16,7 @@ from math import ceil
 
 # Testing
 import unittest
-from src import e6
+from U3.src.e6 import grad_descent
 
 class TestGradDescentMethod(unittest.TestCase):
     """ Test grad_descent method in craciunescu@github.com/algo/U3/src/e6.py """
@@ -27,10 +27,8 @@ class TestGradDescentMethod(unittest.TestCase):
 
         test_case = [randint(500, 600)]
 
-        for _ in range(randint(5, 10)):
-            test_case.append(test_case[-1] - randint(10, 30))
-        for _ in range(randint(5, 10)):
-            test_case.append(test_case[-1] + randint(10, 30))
+        for _ in range(randint(5, 10)): test_case.append(test_case[-1] - randint(10, 30))
+        for _ in range(randint(5, 10)): test_case.append(test_case[-1] + randint(10, 30))
 
         # Allow for error.
         error_window = ceil(len(test_case) * error_rate)
@@ -42,22 +40,32 @@ class TestGradDescentMethod(unittest.TestCase):
     def test_grad_descent01(self):
         """ Test grad_descent 01 """
         test_case, expected = self.generate_dataset(0.1)
-        self.assertIn(test_case[e6.grad_descent(test_case)], expected)
+        provided = test_case[grad_descent(test_case)]
+
+        self.assertIn(provided, expected)
 
     def test_grad_descent02(self):
         """ Test grad_descent 02 """
-        test_case, expected = self.generate_dataset(0.1)
-        self.assertIn(test_case[e6.grad_descent(test_case)], expected)
+        test_case, expected = self.generate_dataset(0.2)
+        provided = test_case[grad_descent(test_case)]
+
+        self.assertIn(provided, expected)
 
     def test_grad_descent03(self):
         """ Test grad_descent 03 """
-        test_case, expected = self.generate_dataset(0.1)
-        self.assertIn(test_case[e6.grad_descent(test_case)], expected)
+        test_case, expected = self.generate_dataset(0.11)
+        provided = test_case[grad_descent(test_case)]
+
+        self.assertIn(provided, expected)
+
 
     def test_grad_descent04(self):
         """ Test grad_descent 04 """
-        test_case, expected = self.generate_dataset(0.1)
-        self.assertIn(test_case[e6.grad_descent(test_case)], expected)
+        test_case, expected = self.generate_dataset(0.3)
+        provided = test_case[grad_descent(test_case)]
+
+        self.assertIn(provided, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

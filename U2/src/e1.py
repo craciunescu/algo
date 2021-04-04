@@ -11,13 +11,16 @@
     maximum value of the sums is the smallest biggest sum possible, showing that
     candidate selection function used provides an optimal solution.
 """
-def get_min_pair_sum(values):
+from typing import List
+
+
+def get_min_pair_sum(values: List[int]) -> int:
     """
         Returns the minimum possible maximum sum out of two values
 
         It seems that the optimal solution to the problem would be:
         1. Sort the array => O(n log(n))
-        2. Iterate over the array and make pairs from start and end => O(n)
+        2. Iterate over half the array and make pairs from start and end => O(n/2) => O(n)
         3. Store the biggest value found each iteration => O(1)
         4. Return stored value => O(1)
 
@@ -25,25 +28,25 @@ def get_min_pair_sum(values):
         - Time Complexity => O(nlog(n))
         - Space Complexity => O(n)
     """
-
-    pair_values = []
-    maximum = []
-
-    # Sort the values.
+    # Initialization and preprocessing
+    current_max = []
     values.sort()
 
-    # Iterate over array.
-    for i in range(int(len(values)/2)):
-        start = values[i]
-        end = values[len(values)-1-i]
+    size = len(values)
+    midpoint = size // 2
+    iterable_values = enumerate(values[:midpoint])
 
-        # New pair found.
-        pair_values.append([start, end])
+    # Iterate over array.
+    for idx, val in iterable_values:
+
+        start = val
+        end = values[size-idx-1]
+        new_pair = [start, end]
 
         # Check for max pair.
-        new_max = start+end > sum(maximum)
-        if new_max:
-            maximum = [start, end]
+        new_max_found = sum(new_pair) > sum(current_max)
+        if new_max_found:
+            current_max = new_pair
 
-    return sum(maximum)
+    return sum(current_max)
     

@@ -10,22 +10,23 @@
 """
 import math
 
-def is_perfect_naive(num):
+def is_perfect_naive(num: int) -> bool:
     """
         Calculates if a number is perfect in a naive way. This function iterates
         all the way up to the number and checks every element.
 
         With this approach, we would obtain:
         - Temporal Complexity => O(n)
-        - Spacial Complexity => O(1)
+        - Spacial Complexity => O(n)
     """
     return num == sum([current for current in range(1, num) if num % current == 0])
 
-def is_perfect_optimized(num):
+def is_perfect_optimized(num: int) -> bool:
     """
         Calculates if a number is perfect in a non-naive way. This function
         takes into account:
         - Divisors present themselves in pairs when calculating.
+        - The quotient can also count as a divisor
         - With this approach one only need go up to sqrt(num).
         - Can store partial sum instead of occupying memory with list of
           divisors.
@@ -41,7 +42,7 @@ def is_perfect_optimized(num):
         if num % current == 0:
             sum_divisors += current
 
-            # Different quotient is also a solution.
+            # Quotient may also be a solution.
             if num / current != current:
                 sum_divisors += (num // current)
 

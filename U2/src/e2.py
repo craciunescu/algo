@@ -16,7 +16,10 @@
     searching for data in the magnetic tape. Analyze the efficiency and
     complexity for the provided solution.
 """
-def store_files(files):
+from typing import List
+
+
+def store_files(files: List[int]) -> List[int]:
     """
         Sorts elements according to their weighted usage.
 

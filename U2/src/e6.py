@@ -44,8 +44,9 @@
     ones back to the heap, which is O(logn).
 """
 import heapq as heap
+from typing import List
 
-def minimum_sum(vector):
+def minimum_sum(vector: List[int]) -> int:
     """
         Adds the smallest two elements of the set together until adding them
         all.

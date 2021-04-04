@@ -58,24 +58,30 @@
     drop off can have an approximation error of ε meters" and chose to go
     directly with the lowest possible error there could be.
 """
-def grad_descent(data):
+from typing import List
+from numbers import Number
+
+def grad_descent(data: List[Number]) -> Number:
     """ Simple algorithm for gradient descent """
+
+    start = 0
+    end = len(data) - 1
 
     def grad_descent_aux(data, start, end):
         """ grad_descent auxiliary function """
 
         # Basic cases.
-        length = end - start
-        if length <= 2:
-            return start if data[start] < data[end] else end
+        is_tuple = (end - start) <= 2
+        is_increasing = data[start] < data[end]
+        
+        if is_tuple: return start if is_increasing else end
 
         # Not-so-basic cases.
         mid_idx = (start + end) // 2
-        if data[mid_idx - 1] < data[mid_idx]:
-            pos = grad_descent_aux(data, start, mid_idx)
-        else:
-            pos = grad_descent_aux(data, mid_idx, end)
+        is_descending = data[mid_idx - 1] >= data[mid_idx]
 
-        return pos
+        if is_descending: return grad_descent_aux(data, mid_idx, end)
 
-    return grad_descent_aux(data, 0, len(data)-1)
+        return grad_descent_aux(data, start, mid_idx)
+
+    return grad_descent_aux(data, start, end)

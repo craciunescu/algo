@@ -16,26 +16,26 @@
 """
 # Testing
 import unittest
-from src import e5
+from U2.src.e5 import path_shortest
 
 class TestPathShortestMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U2/src/e5.py """
 
     def test_path_shortest01(self):
         """ Test path_shortest """
-        self.assertEqual(e5.path_shortest(), )
+        self.assertEqual(path_shortest(), )
 
     def test_path_shortest02(self):
         """ Test path_shortest """
-        self.assertEqual(e5.path_shortest(), )
+        self.assertEqual(path_shortest(), )
 
     def test_path_shortest03(self):
         """ Test path_shortest """
-        self.assertEqual(e5.path_shortest(), )
+        self.assertEqual(path_shortest(), )
 
     def test_path_shortest04(self):
         """ Test path_shortest """
-        self.assertEqual(e5.path_shortest(), )
+        self.assertEqual(path_shortest(), )
 
 if __name__ == '__main__':
     unittest.main()

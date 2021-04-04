@@ -2,7 +2,7 @@
     @author: David E. Craciunescu
       @date: 2020/02/17 (yyyy/mm/dd)
 
-    5. Program a funciton to determine if a number received as a parameter is
+    5. Program a function to determine if a number received as a parameter is
     prime. Analyze the efficiency and complexity of the provided solution(s).
 
     A prime number is a number greater than 1 that cannot be formed by
@@ -11,7 +11,7 @@
 """
 import math
 
-def is_prime_naive(number):
+def is_prime_naive(number: int) -> bool:
     """
         Calculates if a number is prime in a naive way. This function iterates
         all the way up to 'number' and checks every element.
@@ -32,7 +32,7 @@ def is_prime_naive(number):
 
     return is_prime
 
-def is_prime_optimized(number):
+def is_prime_optimized(number: int) -> bool:
     """
         Calculates if a number is prime in a non-naive way. This function takes
         into account:

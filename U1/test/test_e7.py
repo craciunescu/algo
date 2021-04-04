@@ -9,7 +9,7 @@
 """
 # Testing
 import unittest
-from src import e7
+from U1.src.e7 import amount_perfects, amount_primes, amount_primes_perfects
 
 class TestCountMethods(unittest.TestCase):
     """ Test Methods in craciunescu@github.com/algo/U1/src/e7.py """
@@ -17,36 +17,65 @@ class TestCountMethods(unittest.TestCase):
     # Test amount_primes
     def test_amount_primes01(self):
         """ Test amount_primes """
-        self.assertEqual(e7.amount_primes(997), 168)
+        provided = amount_primes(997)
+        expected = 168
+        self.assertEqual(provided, expected)
 
     def test_amount_primes02(self):
         """ Test amount_primes """
-        self.assertEqual(e7.amount_primes(461), 89)
+        provided = amount_primes(461)
+        expected = 89
+        self.assertEqual(provided, expected)
 
     def test_amount_primes03(self):
         """ Test amount_primes """
-        self.assertEqual(e7.amount_primes(547), 101)
+        provided = amount_primes(547)
+        expected = 101
+        self.assertEqual(provided, expected)
 
     def test_amount_primes04(self):
         """ Test amount_primes """
-        self.assertEqual(e7.amount_primes(59), 17)
+        provided = amount_primes(59)
+        expected = 17
+        self.assertEqual(provided, expected)
 
     # Test amount_perfects
     def test_amount_perfects01(self):
         """ Test amount_perfects """
-        self.assertEqual(e7.amount_perfects(6), 1)
+        provided = amount_perfects(6)
+        expected = 1
+        self.assertEqual(provided, expected)
 
     def test_amount_perfects02(self):
         """ Test amount_perfects """
-        self.assertEqual(e7.amount_perfects(28), 2)
+        provided = amount_perfects(28)
+        expected = 2
+        self.assertEqual(provided, expected)
         
     def test_amount_perfects03(self):
         """ Test amount_perfects """
-        self.assertEqual(e7.amount_perfects(496), 3)
+        provided = amount_perfects(496)
+        expected = 3
+        self.assertEqual(provided, expected)
         
     def test_amount_perfects04(self):
         """ Test amount_perfects """
-        self.assertEqual(e7.amount_perfects(8128), 4)
+        provided = amount_perfects(8128)
+        expected = 4
+        self.assertEqual(provided, expected)
+
+    # Test amount_primes_perfects
+    def test_amount_perfect_primes01(self):
+        """ Test amount_perfect_primes """
+        provided = amount_primes_perfects(997)
+        expected = (168, 3)
+        self.assertEqual(provided, expected)
+
+    def test_amount_perfect_primes02(self):
+        """ Test amount_perfect_primes """
+        provided = amount_primes_perfects(461)
+        expected = (89, 2)
+        self.assertEqual(provided, expected)
 
 if __name__ == '__main__':
     unittest.main()

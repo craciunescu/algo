@@ -1,6 +1,7 @@
 import math
+from typing import List
 
-def coincident(vector):
+def coincident(vector: List[int]) -> bool:
     """
         @author: David E. Craciunescu
           @date: 2020/04/26 (yyyy/mm/dd)
@@ -18,25 +19,22 @@ def coincident(vector):
         Consider as inputs the vector and its size.
 
         ---
-        Obtains if a vector is coincident in O(logn) time.
+        Obtains if a vector is coincident in O(√n) time.
     """
     length = len(vector)
+    is_odd_length = length % 2 != 0
+    if is_odd_length: length -= 1
+
     pos = math.ceil(length/2)
-
-    if length % 2 != 0:
-        length -= 1
-
     iteration = 1
+
     while 0 <= pos < len(vector):
-        if vector[pos] == pos:
-            return True
+        if vector[pos] == pos: return True
 
         jump = math.ceil(length // 2^(iteration+1))
 
-        if vector[pos] > pos:
-            pos -= jump
-        else:
-            pos += jump
+        if vector[pos] > pos: pos -= jump
+        else: pos += jump
 
         iteration += 1
 

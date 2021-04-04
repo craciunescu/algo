@@ -9,7 +9,7 @@
     Note: I am yet to find a solution to this without using global variables.
     This works, I've checked the call stack myself.
 """
-def inverse_aux(number, result=0):
+def inverse_aux(number: int, result:int = 0) -> int:
     """
         Recursively obtains the inverse number of the provided one
 
@@ -28,6 +28,6 @@ def inverse_aux(number, result=0):
 
     return result
 
-def inverse(number):
+def inverse(number: int) -> int:
     """ Recursively obtains the inverse number of the provided one """
     return inverse_aux(number)

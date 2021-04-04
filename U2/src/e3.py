@@ -11,7 +11,10 @@
     Implement a greedy method that makes a maximum of (3/2)n comparisons.
     Analyze the efficiency and complexity for the provided solution.
 """
-def min_and_max(vector):
+from typing import List
+
+
+def min_and_max(vector: List[int]):
     """
         Returns minimum and maximum elements in a vector while realizing the
         minimum amount of comparisons between elements.
@@ -26,30 +29,33 @@ def min_and_max(vector):
 
         The complexity of the solution is clearly O(n).
     """
-    if not vector:
-        return []
+    if not vector: return []
 
     length = len(vector)
     pair = [vector[0], vector[1]]
     even_len = length % 2 == 0
 
+    # Make sure we start in the right place
     if even_len:
-        minimum, maximum = min(pair), max(pair)
+        min_current, max_current = min(pair), max(pair)
         idx = 2
     else:
-        minimum = maximum = vector[0]
+        min_current = max_current = vector[0]
         idx = 1
 
+    # Iterate while looking for candidates
     while idx < length - 1:
-        new_min = vector[idx] < vector[idx+1]
+        current_val, next_val = vector[idx], vector[idx+1]
+        found_new_minimum = current_val < next_val
 
-        if new_min:
-            maximum = max(maximum, vector[idx+1])
-            minimum = min(minimum, vector[idx])
+        if found_new_minimum:
+            max_candidate, min_candidate = next_val, current_val
         else:
-            maximum = max(maximum, vector[idx])
-            minimum = min(minimum, vector[idx+1])
+            max_candidate, min_candidate = current_val, next_val
+
+        max_current = max(max_current, max_candidate)
+        min_current = min(min_current, min_candidate)
 
         idx += 2
 
-    return [maximum, minimum]
+    return [max_current, min_current]

@@ -30,42 +30,38 @@
     list to order the first one was a pretty clever approach.
 """
 
+from numbers import Number
+from typing import List, Optional, Tuple
 
-def search_linear(val, data):
+def search_linear(val: Number, data: List[Number]) -> Optional[Number]:
     """ Performs linear search and returns the index of val in data if found """
 
     for idx, elem in enumerate(data):
-        if elem == val:
-            return idx
+        if elem == val: return idx
     return None
 
 
-def search_binary(val, data):
+def search_binary(val: Number, data: List[Number]) -> Optional[int]:
     """ Performs binary search and returns the index of val in data if found """
 
-    def search_binary_aux(val, data, start, end):
+    start = 0
+    end = len(data)-1
+
+    def search_binary_aux(val: Number, data: List[Number], start: int, end: int) -> Optional[int]:
         """ search_binary helper method """
 
         mid_idx = (start + end) // 2
         mid_val = data[mid_idx]
 
-        # Basic cases.
-        if mid_val == val:
-            return mid_idx
-        if mid_idx == end:
-            return None
+        # Cases
+        if mid_val == val: return mid_idx
+        if mid_idx == end: return None
+        if mid_val < val:  return search_binary_aux(val, data, mid_idx+1, end)
+        else:              return search_binary_aux(val, data, start, mid_idx)
 
-        # Not-so-basic cases.
-        if mid_val < val:
-            found = search_binary_aux(val, data, mid_idx+1, end)
-        else:
-            found = search_binary_aux(val, data, start, mid_idx)
+    return search_binary_aux(val, data, start, end)
 
-        return found
-
-    return search_binary_aux(val, data, 0, len(data)-1)
-
-def pivot(val, data, start, end):
+def pivot(val: Number, data: List[Number], start: int, end: int) -> Tuple[List[Number], int, int]:
     """
         Standard QuickSort pivoting. Does not create auxiliary data structures.
 
@@ -80,15 +76,12 @@ def pivot(val, data, start, end):
              left: last index of left pointer in data
             right: last index of right pointer in data
     """
-    left = start
-    right = end
+    left, right = start, end
 
     # Iterate until unordered element
     while left < right:
-        while data[left] < val:
-            left += 1
-        while data[right] > val:
-            right -= 1
+        while data[left] < val: left += 1
+        while data[right] > val: right -= 1
 
         # Swap if out of place
         if left <= right:
@@ -98,7 +91,7 @@ def pivot(val, data, start, end):
 
     return (data, left, right)
 
-def quick_sorted(data, compare, start, end):
+def quick_sorted(data: List[Number], compare: List[Number], start: int, end: int) -> List[Number]:
     """
         Performs quicksort using pivots from a provided list instead of own.
         This implementation is optimized for a comparing list that is sorted.
@@ -111,8 +104,7 @@ def quick_sorted(data, compare, start, end):
 
         @returns: the sorted data
     """
-    if start == end:
-        return data
+    if start == end: return data
 
     # Obtain a pivot and sort sides.
     pivot_idx = search_binary(data[start], compare)
@@ -120,14 +112,12 @@ def quick_sorted(data, compare, start, end):
     data, left, right = pivot(pivot_elem, data, start, end)
 
     # If not yet fully sorted.
-    if start < right:
-        quick_sorted(data, compare, start, right)
-    if end > left:
-        quick_sorted(data, compare, left, end)
+    if start < right: quick_sorted(data, compare, start, right)
+    if end > left: quick_sorted(data, compare, left, end)
 
     return data
 
-def quick_unsorted(data, compare, start, end):
+def quick_unsorted(data: List[Number], compare: List[Number], start: int, end: int) -> List[Number]:
     """
         Performs quicksort using pivots from a provided list instead of own.
 
@@ -139,8 +129,7 @@ def quick_unsorted(data, compare, start, end):
 
         @returns: the sorted data
     """
-    if start == end:
-        return data
+    if start == end: return data
 
     # Obtain a pivot and sort sides.
     pivot_idx = search_linear(data[start], compare)
@@ -148,14 +137,12 @@ def quick_unsorted(data, compare, start, end):
     data, left, right = pivot(pivot_elem, data, start, end)
 
     # If not yet fully sorted.
-    if start < right:
-        quick_unsorted(data, compare, start, right)
-    if end > left:
-        quick_unsorted(data, compare, left, end)
+    if start < right: quick_unsorted(data, compare, start, right)
+    if end > left: quick_unsorted(data, compare, left, end)
 
     return data
 
-def match(set1, set2):
+def match(set1: List[Number], set2: List[Number]) -> List[Number]:
     """
         Returns the sorted match of two unordered iterables. Sorts the iterables
         by comparing with each other and not the set itself.
@@ -171,4 +158,3 @@ def match(set1, set2):
     set2 = quick_sorted(set2, set1, 0, len(set2)-1)
 
     return list(zip(set1, set2))
-

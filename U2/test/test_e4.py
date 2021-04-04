@@ -13,16 +13,16 @@
 """
 # Testing
 import unittest
-from src import e4
+from U2.src.e4 import prim
 
 class TestMinPrimMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U2/src/e4.py """
-
+    
     def test_prim01(self):
         """ Test prim """
 
         # Picture of graph provided here https://shorturl.at/rELP4
-        provide = {
+        graph = {
             'A': {'B': 0.5, 'C': 3, 'E': 0},
             'B': {'A': 0.5, 'E': 0.7},
             'C': {'A': 3, 'D': -4.1, 'E': 2},
@@ -35,7 +35,9 @@ class TestMinPrimMethods(unittest.TestCase):
             'J': {'F': 3, 'G': 0.2, 'I': -2}
         }
 
-        expect = {
+        provided = dict(prim(graph, 'A'))
+
+        expected = {
             'A': {'B', 'E'},
             'E': {'D', 'G'},
             'G': {'H', 'I'},
@@ -44,13 +46,13 @@ class TestMinPrimMethods(unittest.TestCase):
             'J': {'F'}
         }
 
-        self.assertEqual(dict(e4.prim(provide, 'A')), expect)
+        self.assertEqual(provided, expected)
 
     def test_prim02(self):
         """ Test prim """
 
         # Linear graph and non-connected node.
-        provide = {
+        graph = {
             'A': {'B': 1},
             'B': {'A': 1, 'C': 1},
             'C': {'B': 1, 'D': 1},
@@ -58,23 +60,26 @@ class TestMinPrimMethods(unittest.TestCase):
             'E': {'D': 1},
             'F': {}
         }
-
-        expect = {
+        
+        provided = dict(prim(graph, 'D'))
+        
+        expected = {
             'D': {'E', 'C'},
             'C': {'B'},
             'B': {'A'}
         }
 
-        self.assertEqual(dict(e4.prim(provide, 'D')), expect)
+        self.assertEqual(provided, expected)
 
     def test_prim03(self):
         """ Test prim """
+        
+        # Empty graph
+        graph = {} 
+        provided = dict(prim(graph, 'B'))
+        expected = {}
 
-        # Empty graph.
-        provide = {}
-        expect = {}
-
-        self.assertEqual(dict(e4.prim(provide, 'B')), expect)
+        self.assertEqual(provided, expected)
 
 if __name__ == '__main__':
     unittest.main()

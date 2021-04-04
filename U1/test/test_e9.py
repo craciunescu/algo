@@ -8,7 +8,7 @@
 """
 # Testing
 import unittest
-from src import e9
+from U1.src.e9 import summation
 
 class TestSummationMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U1/src/e9.py """
@@ -16,15 +16,21 @@ class TestSummationMethods(unittest.TestCase):
     # Test summation
     def test_summation01(self):
         """ Test summation """
-        self.assertEqual(e9.summation(10), sum(range(10+1)))
+        provided = summation(10)
+        expected = sum(range(10+1))
+        self.assertEqual(provided, expected)
 
     def test_summation02(self):
         """ Test summation """
-        self.assertEqual(e9.summation(100), sum(range(100+1)))
+        provided = summation(100)
+        expected = sum(range(100+1))
+        self.assertEqual(provided, expected)
 
     def test_summation03(self):
         """ Test summation """
-        self.assertEqual(e9.summation(300), sum(range(300+1)))
+        provided = summation(300)
+        expected = sum(range(300+1))
+        self.assertEqual(provided, expected)
 
 if __name__ == '__main__':
     unittest.main()

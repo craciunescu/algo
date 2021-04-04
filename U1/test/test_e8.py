@@ -8,7 +8,7 @@
 """
 # Testing
 import unittest
-from src import e8
+from U1.src.e8 import inverse
 
 class TestInverseMethods(unittest.TestCase):
     """ Test methods in craciunescu@github.com/algo/U1/src/e8.py """
@@ -16,19 +16,27 @@ class TestInverseMethods(unittest.TestCase):
     # Test inverse
     def test_inverse01(self):
         """ Test inverse """
-        self.assertEqual(e8.inverse(1234), 4321)
+        provided = inverse(1234)
+        expected = 4321
+        self.assertEqual(provided, expected)
 
     def test_inverse02(self):
         """ Test inverse """
-        self.assertEqual(e8.inverse(1000), 1)
+        provided = inverse(1000)
+        expected = 1
+        self.assertEqual(provided, expected)
 
     def test_inverse03(self):
         """ Test inverse """
-        self.assertEqual(e8.inverse(1), 1)
+        provided = inverse(1)
+        expected = 1
+        self.assertEqual(provided, expected)
 
     def test_inverse04(self):
         """ Test inverse """
-        self.assertEqual(e8.inverse(1230), 321)
+        provided = inverse(1230)
+        expected = 321
+        self.assertEqual(provided, expected)
 
 if __name__ == '__main__':
     unittest.main()

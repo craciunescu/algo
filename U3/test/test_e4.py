@@ -12,9 +12,7 @@ from random import randint, shuffle
 
 # Testing
 import unittest
-from src import e4
-
-
+from U3.src.e4 import match
 class TestMatchMethods(unittest.TestCase):
     """ Test match method in craciunescu@github.com/algo/U3/src/e4.py """
 
@@ -25,32 +23,36 @@ class TestMatchMethods(unittest.TestCase):
 
         provided1 = list(range(length))
         provided2 = provided1[:]
-        expect = list(zip(provided1, provided2))
+        expected = list(zip(provided1, provided2))
 
         shuffle(provided1)
         shuffle(provided2)
 
-        return (provided1, provided2, expect)
+        return (provided1, provided2, expected)
 
     def test_match01(self):
         """ Test match 01 """
-        set1, set2, exp = self.data_generator(100)
-        self.assertEqual(e4.match(set1, set2), exp)
+        provided1, provided2, expected = self.data_generator(100)
+        provided = match(provided1, provided2)
+        self.assertEqual(provided , expected)
 
     def test_match02(self):
         """ Test match 02 """
-        set1, set2, exp = self.data_generator(1000)
-        self.assertEqual(e4.match(set1, set2), exp)
+        provided1, provided2, expected = self.data_generator(1000)
+        provided = match(provided1, provided2)
+        self.assertEqual(provided, expected)
 
     def test_match03(self):
         """ Test match 03 """
-        set1, set2, exp = self.data_generator(10000)
-        self.assertEqual(e4.match(set1, set2), exp)
+        provided1, provided2, expected = self.data_generator(10000)
+        provided = match(provided1, provided2)
+        self.assertEqual(provided, expected)
 
     def test_match04(self):
         """ Test match 04 """
-        set1, set2, exp = self.data_generator(50000)
-        self.assertEqual(e4.match(set1, set2), exp)
+        provided1, provided2, expected = self.data_generator(50000)
+        provided = match(provided1, provided2)
+        self.assertEqual(provided, expected)
 
 
 if __name__ == '__main__':

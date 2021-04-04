@@ -6,7 +6,7 @@
     S = 1 + 2 + 3 + 4 + (...) + n-1 + n.
     Analyze the efficiency and complexity of the provided solution.
 """
-def summation(num):
+def summation(num: int) -> int:
     """ 
         Recursively calculates the sum of all the numbers between 1 and num.
 
@@ -14,6 +14,5 @@ def summation(num):
         - Time Complexity => O(n) [Basically doing a for loop recursively]
         - Space Complexity => O(n) [We have to store all the calls on the stack]
     """
-    if num <= 1:
-        return num
+    if num <= 1: return num
     return num + summation(num - 1)
